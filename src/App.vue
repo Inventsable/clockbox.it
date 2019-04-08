@@ -146,7 +146,7 @@ export default {
       // console.log('Now?')
     },
     goToGitHub() {
-      window.open("https://github.com/Inventsable");
+      window.open("https://github.com/Inventsable/clockbox.it");
     },
     getCountdownTime(milliseconds) {
       let day, hour, minute, seconds;

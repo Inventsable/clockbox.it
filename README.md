@@ -8,6 +8,4 @@
 
 ### Dynamic animation intro
 
-![](https://thumbs.gfycat.com/WavySpryImperialeagle-size_restricted.gif)
-
-![](https://thumbs.gfycat.com/PhonyTemptingEuropeanfiresalamander-size_restricted.gif)
+![](https://thumbs.gfycat.com/UnknownRectangularCrab-size_restricted.gif)
