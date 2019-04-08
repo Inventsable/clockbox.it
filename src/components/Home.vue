@@ -37,18 +37,26 @@
 
                                 <v-card-text id="contents">
                                 <!-- <v-container grid-list-md> -->
-                                    <v-layout wrap>
-                                        <v-flex xs12 class="mb-2">
-                                            <v-text-field box 
+                                    <v-layout row wrap>
+                                        <v-flex xs12 sm6 class="mb-2">
+                                            <v-text-field flat 
                                                 label="Title" 
+                                                :rules="[rules.counter]"
                                                 hint="Optional"
                                                 persistent-hint
                                                 v-model="title"></v-text-field>
                                         </v-flex>
-                                        
+                                        <v-flex xs12 sm6 class="mb-2">
+                                            <v-text-field flat 
+                                                label="URL" 
+                                                hint="Optional"
+                                                prepend-inner-icon="link"
+                                                persistent-hint
+                                                v-model="URL"></v-text-field>
+                                        </v-flex>
                                         <v-flex xs12>
                                             <v-textarea
-                                                box
+                                                flat
                                                 label="Content"
                                                 
                                                 hide-details
@@ -160,11 +168,14 @@
                                 
                                 ></v-card>
                                 <v-card-text>
-                                    Confirmation animation and message goes here.
-
-                                    Should have a checkbox, agree that content is fictional.
-
-                                    This is not secure, has no authentication, and could be pried open by any hacker.
+                                    <v-checkbox v-model="checkbox">
+                                        <template v-slot:label>
+                                            <div>
+                                                I understand this is for fictional content only.
+                                            </div>
+                                        </template>
+                                    </v-checkbox>
+                                    
                                 </v-card-text>
                                 <v-card-actions>
 
@@ -178,6 +189,7 @@
                                     <v-btn
                                     color="primary"
                                     flat
+                                    :disabled="checkbox ? false : true"
                                     :loading="submitting"
                                     @click="submitBox()"
                                     >
@@ -218,7 +230,9 @@ export default {
     name: 'Home',
     data: () => ({
         e1: 1,
-        title: null,
+        checkbox: false,
+        title: '',
+        URL: null,
         content: null,
         tabber: null,
         datepicker: new Date().toISOString().substr(0, 10),
@@ -228,6 +242,9 @@ export default {
         package: null,
         submitting: false,
         landscapePickers: null,
+        rules: {
+          counter: value => value.length <= 30 || 'Max 30 characters',
+        },
         countdown: {
             days: 0,
             hours: 0,
@@ -319,6 +336,7 @@ export default {
                 content: self.content,
                 title: self.title,
                 locked: true,
+                URL: self.URL,
             }
             this.package = clockbox;
             console.log(this.package);
@@ -398,9 +416,11 @@ export default {
             this.countdown.hours = 0;
             this.countdown.minutes = 0;
             this.countdown.seconds = 0;
-            this.title = null;
+            this.URL = null;
+            this.title = '';
             this.content = null;
             this.tabber = 0;
+            this.checkbox = false;
         },
         getHomeStyle() {
             return `

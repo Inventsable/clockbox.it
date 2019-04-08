@@ -1,5 +1,5 @@
 <template>
-    <div class="fakescreen">
+    <div @click="dismissIntro()" class="fakescreen">
         <div class="intro-animation" ></div>
     </div>
 </template>
@@ -11,7 +11,7 @@ import * as lottie from 'lottie-web'
 export default {
     name: 'intro',
     data: () => ({
-        speed: .75,
+        speed: 1,
         elt: {},
         autoplay: true,
     }),
@@ -21,6 +21,9 @@ export default {
         this.animData.addEventListener('complete', this.isDone);
     },
     methods: {
+        dismissIntro() {
+            console.log('Go away')
+        },
         isDone() {
             this.$emit('done');
         },

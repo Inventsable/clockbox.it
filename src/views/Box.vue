@@ -72,6 +72,7 @@ export default {
                             target: doc.data().target,
                             timestamp: doc.data().timestamp,
                             title: doc.data().title,
+                            URL: doc.data().URL,
                         }
                         // this.app.mirror = this.box;
                         this.swap = doc.data().locked;

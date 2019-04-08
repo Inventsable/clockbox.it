@@ -5,14 +5,19 @@
                 <unlockedanim />
             </div>
             <v-card-title primary-title>
-                <div>
-                    <h3 class="headline mb-3">{{title || $route.params.id}}</h3>
-                    <div> {{ content }} </div>
+                <div class="headline mb-3 text-center">
+                    <span>
+                        {{title || $route.params.id}}
+                    </span>
+                    <v-icon color="primary" v-if="link" class="mb-1 ml-2 activeLink" @click="goToLink()">link</v-icon>    
+                    <!-- <v-icon color="grey" v-else class="mb-1 ml-2">link_off</v-icon>     -->
                 </div>
             </v-card-title>
-            <!-- <v-card-text>
+                    <!-- <div> {{ content }} </div> -->
+            <v-card-text>
+                <div class="text-center"></div>
                 {{content}}
-            </v-card-text> -->
+            </v-card-text>
         </v-card>
     </div>
 </template>
@@ -47,6 +52,12 @@ export default {
             else 
                 return null;
         },
+        link() {
+            if (this.loaded)
+                return (this.$parent.box.URL) ? this.$parent.box.URL : null;
+            else 
+                return null;
+        },
     },
     watch: {
         // loaded(state) {
@@ -59,6 +70,9 @@ export default {
         init() {
             // this.content = this.$parent.box.content;
             console.log(this.content);
+        },
+        goToLink() {
+            window.open(this.link);
         },
         checkLock() {
             if (this.$parent.loaded) {
@@ -90,6 +104,12 @@ export default {
     letter-spacing: .5ch;
 }
 
+.text-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .theme--dark.v-sheet {
     background-color: var(--color-bg-dark);
 }
@@ -109,6 +129,9 @@ export default {
     /* border: 2px solid red; */
 }
 
+.activeLink {
+    cursor: pointer;
+}
 
 @keyframes fadein {
     0%   { opacity: 0; }

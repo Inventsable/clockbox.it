@@ -2,10 +2,6 @@
 
 ### Lockbox with countdown generator
 
-![Introduction animation](https://thumbs.gfycat.com/OrnateLeftDegu-size_restricted.gif)
+![Introduction animation](https://thumbs.gfycat.com/ConcernedBothGermanshepherd-size_restricted.gif)
 
-![](https://thumbs.gfycat.com/IdenticalAngelicBobolink-size_restricted.gif)
-
-### Dynamic animation intro
-
-![](https://thumbs.gfycat.com/UnknownRectangularCrab-size_restricted.gif)
+By request for time-release spoilers used for text-based and tabletop RPing.

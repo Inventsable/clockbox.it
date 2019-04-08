@@ -18,7 +18,7 @@
         
       </v-card>
     </v-dialog>
-    <intro @done="isIntrod()" v-if="$route.name == 'home'"/>
+    <intro ref="intro" @done="isIntrod()" v-if="$route.name == 'home'"/>
     <loadingicon ref="loader" @done="isLoaded()" v-if="$route.name == 'box'"/>
     <preloading @done="isPreLoaded()" v-if="$route.name == 'box'" v-show="!boxChecked"/>
     <v-content >
@@ -111,11 +111,24 @@ export default {
     // console.log(this.getCountdownTime(Date.now() - 1554438480425));
     // this.writeTestBox();
     // console.log(this.getBID())
-
+    console.log(this.$refs);
+    window.addEventListener('click', this.checkIfDismissIntro)
   },
   methods: {
     goToBox(name) {
       this.$router.push({name: 'box', params: { id: name }})
+    },
+    checkIfDismissIntro() {
+      if (!this.boxChecked) {
+        // console.log(this.$refs)
+        // console.log('Dismiss now')
+        try {
+          this.$refs.intro.animData.setSpeed(3);
+        } catch(err) {
+          // 
+        }
+      }
+        
     },
     keyMsg(str) {
       this.message = str;

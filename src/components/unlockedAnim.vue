@@ -11,7 +11,7 @@ import * as lottie from 'lottie-web'
 export default {
     name: 'loadingicon',
     data: () => ({
-        speed: .75,
+        speed: 1,
         elt: {},
         autoplay: true,
     }),

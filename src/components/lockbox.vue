@@ -16,7 +16,15 @@
             </v-dialog>
             <!-- <span class="text-uppercase anno mb-2" v-if="checkLock()">unlocked in</span> -->
             <!-- <span style="height:10px;width:100%;" class="mt-2 hidden-sm-and-up"></span> -->
-            <div v-if="checkLock()" class="mb-3">
+            <div class="headline mb-3 text-center">
+                <span>
+                    {{title || $route.params.id}}
+                </span>
+                <v-icon color="primary" v-if="link" class="mb-1 ml-2 activeLink" @click="goToLink()">link</v-icon>    
+                <!-- <v-icon color="grey" v-else class="mb-1 ml-2">link_off</v-icon>     -->
+            </div>
+            
+            <div v-if="checkLock()" class="mb-4">
                 <v-layout>
                     <v-flex 
                         xs10 offset-xs1
@@ -37,6 +45,9 @@
                 </v-layout>
             </div>
             <timer ref="timer"/>
+            
+            
+            
         </div>
 </template>
 
@@ -74,8 +85,23 @@ export default {
         loaded() {
             return this.$parent.loaded;
         },
+        title() {
+            if (this.loaded)
+                return (this.$parent.box.title) ? this.$parent.box.title : null;
+            else 
+                return null;
+        },
+        link() {
+            if (this.loaded)
+                return (this.$parent.box.URL) ? this.$parent.box.URL : null;
+            else 
+                return null;
+        },
     },
     methods: {
+        goToLink() {
+            window.open(this.link);
+        },
         shuffleHint() {
             let preroll = Math.floor((Math.random() * this.prefixes.length));
             let subroll = Math.floor((Math.random() * this.suffixes.length));
@@ -167,6 +193,9 @@ export default {
     /* border: 2px solid red; */
 }
 
+.activeLink {
+    cursor: pointer;
+}
 
 @keyframes fadein {
     0%   { opacity: 0; }
