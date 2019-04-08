@@ -1,29 +1,13 @@
-# clockboxes
+# [clockbox.it](https://clockboxes.firebaseapp.com/)
 
-## Project setup
-```
-npm install
-```
+### Lockbox with countdown generator
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+![Introduction animation](https://thumbs.gfycat.com/OrnateLeftDegu-size_restricted.gif)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+![](https://thumbs.gfycat.com/IdenticalAngelicBobolink-size_restricted.gif)
 
-### Run your tests
-```
-npm run test
-```
+### Dynamic animation intro
 
-### Lints and fixes files
-```
-npm run lint
-```
+![](https://thumbs.gfycat.com/WavySpryImperialeagle-size_restricted.gif)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![](https://thumbs.gfycat.com/PhonyTemptingEuropeanfiresalamander-size_restricted.gif)
